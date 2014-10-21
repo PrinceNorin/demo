@@ -8,8 +8,8 @@ module ApplicationHelper
     end
   end
   
-  def gravatar_for(user)
+  def gravatar_for(user, size=nil)
     hash = Digest::MD5.hexdigest user.email
-    image_tag "http://www.gravatar.com/avatar/#{hash}", alt: user.name
+    image_tag "http://www.gravatar.com/avatar/#{hash}?s=#{size}", alt: user.name
   end
 end

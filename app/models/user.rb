@@ -3,7 +3,15 @@ class User < ActiveRecord::Base
   before_save :downcase_email
   
   # associations
-  has_many :entries
+  has_many :entries, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  
+  # followed and following
+  has_many :relationships, foreign_key: :followed_id, dependent: :destroy
+  has_many :followers, through: :relationships, source: :follower
+  has_many :reverse_relationships, foreign_key: :follower_id,
+            class_name: 'Relationship', dependent: :destroy
+  has_many :followings, through: :reverse_relationships, source: :followed
   
   # valid email address regexp
   VALID_ADDRESS = /\A[^@\s]+@[\w\-_\.]+\.\w{2,4}/i

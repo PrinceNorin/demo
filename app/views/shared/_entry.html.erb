@@ -1,0 +1,7 @@
+<% if @entries && @entries.any? %>
+  <%= will_paginate @entries %>
+  <ul id="entries">
+    <%= render partial: 'shared/entry_item', collection: @entries %>
+  </ul>
+  <%= will_paginate @entries %>
+<% end %>

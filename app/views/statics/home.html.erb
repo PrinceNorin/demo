@@ -1,1 +1,18 @@
-<h1>Welcome to Demo application</h1>
+<div class="span12">
+  <% if user_signed_in? %>
+    <div id="entry_status" class="span3">
+      <h3><%= link_to current_user.name, current_user %></h3>
+      <p>
+        <%= link_to gravatar_for(current_user, 160), current_user %>
+        <%= link_to "Followers: #{current_user.followers.count}", followers_user_path(current_user) %> | 
+        <%= link_to "Followings: #{current_user.followings.count}", followings_user_path(current_user) %>
+      </p>
+      <div><%= render 'shared/entry_form' %></div>
+    </div>
+  <% else %>
+    <h1>Welcome to Demo application</h1>
+  <% end %>
+  <div class="span8">
+    <%= render 'shared/entry' %>
+  </div>
+</div>

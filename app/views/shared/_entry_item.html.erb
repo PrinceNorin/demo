@@ -1,0 +1,9 @@
+<li>
+  <%= link_to entry_item.title, entry_item %>
+  <label>
+    Posted by: <%= link_to entry_item.user.name, entry_item.user %>
+  </label>
+  <label>
+    Posted at: <%= entry_item.posted_at %>
+  </label>
+</li>

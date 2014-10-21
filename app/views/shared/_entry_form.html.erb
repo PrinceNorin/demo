@@ -1,0 +1,10 @@
+<%= form_for @entry do |f| %>
+  <%= render 'shared/errors_message', object: f.object %>
+  <%= f.label :title %>
+  <%= f.text_field :title, autofocus: true %>
+  
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  
+  <%= f.submit "Post New Entry", class: "btn btn-primary" %>
+<% end %>

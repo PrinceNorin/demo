@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email params[:email]
     if user.try(:authenticate, params[:password])
       # signing in the user
-      session[:user_id] = user.id
+      signing_in user
       flash[:success] = 'Welcome to Demo app!'
       redirect_to root_path
     else
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   
   def destroy
     # signing out user
-    reset_session
+    signing_out
     flash[:success] = 'You have successfully signed out!'
     redirect_to root_path
   end

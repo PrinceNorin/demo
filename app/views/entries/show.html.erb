@@ -1,0 +1,17 @@
+<div id="entry" class="span12">
+  <h1><%= @entry.title %></h1>
+  <p><%= @entry.body %></p>
+  <span>Posted by: <%= @entry.user.name %> |
+        Posted at: <%= @entry.posted_at %></span>
+  <h4>Comments</h4>
+  <% if @comments.any? %>
+    <ul id="comments">
+      <%= render partial: 'shared/comment', collection: @comments %>
+    </ul>
+    <%= will_paginate @comments %>
+  <% else %>
+    <p>No comments for this entry</p>
+  <% end %>
+  <hr>
+  <%= render 'shared/comment_form', entry: @entry %>
+</div>

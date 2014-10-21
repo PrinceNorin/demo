@@ -1,12 +1,23 @@
 Demo::Application.routes.draw do
+  resources :comments
+
+  resources :entries
+
   root 'statics#home'
   
   resources :sessions, only: [:new, :create, :destroy]
   get 'signin' => 'sessions#new', as: :signin
   delete 'signout' => 'sessions#destroy', as: :signout
   
-  resources :users
+  resources :users do
+    member do
+      get 'followers' => 'users#followers', as: :followers
+      get 'followings' => 'users#followings', as: :followings
+    end
+  end
   get 'signup' => 'users#new', as: :signup
+  
+  resources :entries, except: [:edit, :update, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,135 @@
+@import "bootstrap";
+
+#logo {
+  float: left;
+  color: #fff;
+  font-size: 1.5em;
+  padding-top: 0.5em;
+  letter-spacing: -1px;
+  line-height: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#main {
+  margin-top: 80px;
+}
+
+#footer {
+  clear: both;
+  margin-top: 70px;
+  padding-top: 10px;
+  border-top: 1px solid #999;
+  ul {
+    list-style: none;
+    li {
+      float: left;
+      padding: 0 15px;
+      border-right: 1px solid #999;
+      &:last-child {
+        border: none;
+      }
+      a {
+        color: #333;
+        &:hover {
+          color: #999;
+        }
+      }
+    }
+  }
+}
+
+#notification {
+  text-align: center;
+}
+
+#error_explanation {
+  @extend .alert;
+  @extend .alert-error;
+  ul {
+    list-style: none;
+  }
+}
+
+#profile {
+  img {
+    padding: 2px;
+    border: 1px solid #999;
+  }
+  p {
+    background-image: url("<%= asset_path('image/arrow.png') %>");
+    background-repeat: no-repeat;
+    background-size: 26px 26px;
+    background-position: 0 7px;
+    padding-left: 26px;
+    padding-top: 10px;
+    border-top: 1px solid #999;
+    &:last-child {
+      border-bottom: 1px solid #999;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+#entry_status {
+  text-align: center;
+  img {
+    margin-bottom: 5px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+  div {
+    text-align: left;
+  }
+}
+
+#entry {
+  h1 {
+    line-height: 1;
+    font-size: 2em;
+    text-align: center;
+    letter-spacing: -1px;
+  }
+  p {
+    padding: 25px 0 0 0;
+    text-indent: 50px;
+  }
+  span {
+    display: block;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-bottom: 50px;
+  }
+}
+
+#entries {
+  list-style: none;
+  li {
+    padding: 10px;
+    border-bottom: 1px solid #999;
+    a {
+      font-size: 1.2em;
+    }
+    &:hover {
+      background-color: #f2f2f2;
+    }
+  }
+}
+
+#comments {
+  list-style: none;
+  margin: 5px 0;
+  padding: 10px;
+  li {
+    padding: 5px 0;
+    a {
+      color: #333;
+      text-decoration: underline;
+    }
+    span {
+      display: inline;
+      padding-left: 5px;
+    }
+  }
+}

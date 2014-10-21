@@ -1,4 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div id="profile" class="span8 offset2">
+  <div class="row">
+    <div class="span4">
+      <%= gravatar_for @user, 200 %>
+    </div>
+    <div class="span4">
+      <%= content_tag :p, "Name: #{@user.name}" %>
+      <%= content_tag :p, "Email: #{@user.email}" %>
+      <%= content_tag :p, "Member since: #{@user.created_at.strftime('%b %d, %y')}" %>
+      <%= content_tag :P, "Followers: 0 | Followings: 0" %>
+    </div>
+  </div>
+</div>

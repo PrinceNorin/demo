@@ -1,8 +1,12 @@
-<h1>Users</h1>
-
-<div class="span6 offset3">
+<div class="span10 offset1">
+  <h1>Users</h1>
   <%= will_paginate %>
-  <div id="user">
-    <%= render @users %>
-  </div>
+  <table id="user" class="table">
+    <% @users.in_groups_of(4, false) do |row_users| %>
+    <tr>
+      <%= render row_users %>
+    </tr>
+    <% end %>
+  </table>
+  <%= will_paginate %>
 </div>

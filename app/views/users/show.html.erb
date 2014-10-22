@@ -7,7 +7,16 @@
       <%= content_tag :p, "Name: #{@user.name}" %>
       <%= content_tag :p, "Email: #{@user.email}" %>
       <%= content_tag :p, "Member since: #{@user.created_at.strftime('%b %d, %y')}" %>
-      <%= content_tag :P, "Followers: 0 | Followings: 0" %>
+      <%= render 'shared/follow_status', user: @user %>
+      <% unless current_user == @user %>
+        <div id="follow_form">
+          <% if current_user.following? @user %>
+            <%= render 'unfollow' %>
+          <% else %>
+            <%= render 'follow' %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

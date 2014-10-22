@@ -7,7 +7,7 @@ namespace :db do
       user.followers << follower
     end
     users[10..60].each do |following|
-      user.followings << following
+      user.followed_users << following
     end
   end
 end

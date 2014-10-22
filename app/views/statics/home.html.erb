@@ -1,18 +1,22 @@
 <div class="span12">
   <% if user_signed_in? %>
+    <% @user = current_user %>
     <div id="entry_status" class="span3">
-      <h3><%= link_to current_user.name, current_user %></h3>
-      <p>
-        <%= link_to gravatar_for(current_user, 160), current_user %>
-        <%= link_to "Followers: #{current_user.followers.count}", followers_user_path(current_user) %> | 
-        <%= link_to "Followings: #{current_user.followings.count}", followings_user_path(current_user) %>
-      </p>
+      <h3><%= link_to @user.name, @user %></h3>
+      <%= link_to gravatar_for(@user, 160), @user %>
+      <%= render 'shared/follow_status', user: @user %>
       <div><%= render 'shared/entry_form' %></div>
     </div>
+    <div class="span8">
+      <%= render 'shared/entry' %>
+    </div>
   <% else %>
-    <h1>Welcome to Demo application</h1>
+    <div class="center hero-unit">
+      <h1>Welcome to Demo app</h1><br />
+      <h3>You can browse and view all entries all you want or<br />
+        <%= link_to "Sign Up now!", signup_path, class: "btn btn-primary btn-large" %> to leave comments
+        on the entry that you like. (^_^)
+      </h3>
+    </div>
   <% end %>
-  <div class="span8">
-    <%= render 'shared/entry' %>
-  </div>
 </div>

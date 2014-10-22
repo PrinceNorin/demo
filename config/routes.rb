@@ -1,4 +1,7 @@
 Demo::Application.routes.draw do
+  get "relationships/new"
+  get "relationships/create"
+  get "relationships/destroy"
   resources :comments
 
   resources :entries
@@ -18,6 +21,8 @@ Demo::Application.routes.draw do
   get 'signup' => 'users#new', as: :signup
   
   resources :entries, except: [:edit, :update, :destroy]
+  
+  resources :relationships, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

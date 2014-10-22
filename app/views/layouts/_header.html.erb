@@ -3,6 +3,7 @@
     <div class="container">
       <%= link_to "Demo", root_path, id: "logo" %>
       <ul class="nav pull-right">
+        <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Entry", entries_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "User", users_path %></li>
@@ -12,8 +13,8 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", edit_user_path(current_user) %></li>
-              <li><%= link_to "Setting", current_user %></li>
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Setting", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to "Sign Out", signout_path,
                 data: { method: :delete } %></li>

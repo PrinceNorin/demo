@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user_check, except: [:new, :create, :followers, :followings]
+  before_action :signed_in_user_check, except: [:new, :create]
   before_action :current_user_check, only: [:edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -48,11 +48,13 @@ class UsersController < ApplicationController
   end
   
   def followers
-    @followers = User.find(params[:id]).followers.paginate page: params[:page]
+    @users = User.find(params[:id]).followers.paginate page: params[:page]
+    render 'show_follow'
   end
   
   def followings
-    @followings = User.find(params[:id]).followings.paginate page: params[:page]
+    @users = User.find(params[:id]).followed_users.paginate page: params[:page]
+    render 'show_follow'
   end
   
   private

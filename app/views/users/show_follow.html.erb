@@ -1,0 +1,15 @@
+<div class="span10 offset1">
+  <%= will_paginate @followers %>
+  <ul id="relationships">
+    <% @users.each do |user| %>
+      <li>
+        <%= gravatar_for user, 45 %>
+        <p>
+          <%= link_to user.name, user %>
+          <label>Member Since: <%= user.member_since %></label>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+  <%= will_paginate @followers %>
+</div>

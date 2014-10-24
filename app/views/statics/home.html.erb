@@ -1,7 +1,7 @@
 <div class="span12">
   <% if user_signed_in? %>
     <% @user = current_user %>
-    <div id="entry_status" class="span3">
+    <div id="user_status" class="span3">
       <h3><%= link_to @user.name, @user %></h3>
       <%= link_to gravatar_for(@user, 160), @user %>
       <%= render 'shared/follow_status', user: @user %>

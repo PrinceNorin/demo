@@ -1,12 +1,11 @@
 Demo::Application.routes.draw do
-  get "relationships/new"
-  get "relationships/create"
-  get "relationships/destroy"
   resources :comments
 
   resources :entries
 
   root 'statics#home'
+  get 'about' => 'statics#about', as: :about
+  get 'contact' => 'statics#contact', as: :contact
   
   resources :sessions, only: [:new, :create, :destroy]
   get 'signin' => 'sessions#new', as: :signin

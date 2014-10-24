@@ -5,4 +5,8 @@ class Comment < ActiveRecord::Base
   validates :entry, presence: true
   validates :user, presence: true
   validates :content, presence: true
+  
+  def commented_at
+    created_at.strftime("%d/%m/%y - %H:%M %p")
+  end
 end

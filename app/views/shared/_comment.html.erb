@@ -1,4 +1,5 @@
 <li>
   <%= link_to "#{comment.user.name}", comment.user %>:
-  <span><%= comment.content %></span>
+  <span><%= comment.commented_at %></span>
+  <p><%= comment.content %></p>
 </li>

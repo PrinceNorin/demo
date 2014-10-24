@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :signed_in_user_check, except: [:new, :create]
+  before_action :redirect_signed_in_user, only: [:new, :create]
   before_action :current_user_check, only: [:edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 

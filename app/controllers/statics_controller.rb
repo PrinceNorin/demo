@@ -7,4 +7,10 @@ class StaticsController < ApplicationController
       @entries = Entry.paginate page: params[:page]
     end
   end
+  
+  def about
+  end
+  
+  def contact
+  end
 end

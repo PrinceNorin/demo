@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @entries = @user.entries.order("created_at ASC").paginate(page: params[:page])
   end
 
   def new

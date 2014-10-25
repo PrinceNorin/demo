@@ -8,7 +8,7 @@
     <div class="span4">
       <%= content_tag :p, "Name: #{@user.name}" %>
       <%= content_tag :p, "Email: #{@user.email}" %>
-      <%= content_tag :p, "Member since: #{@user.created_at.strftime('%b %d, %y')}" %>
+      <%= content_tag :p, "Member since: #{@user.member_since}" %>
       <%= render 'shared/follow_status', user: @user %>
       <% unless current_user == @user %>
         <div id="follow_form">
@@ -21,4 +21,7 @@
       <% end %>
     </div>
   </div>
+  <hr />
+  <h2>Old Entries</h2>
+  <%= render 'shared/entry' %>
 </div>

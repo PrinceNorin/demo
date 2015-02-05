@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
       end
     end
     
+
+    
     def redirect_signed_in_user
       if user_signed_in?
         flash[:notice] = 'You are already signed in.'
